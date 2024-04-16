@@ -15,8 +15,8 @@ We now enter the main loop.
 - 4 The client sends one of either `0`, `1`, `2`, or `3`, denoting the direction to move in (`0` = right, `1` = up, `2` = left, `3` = down).
 
 - 5 The server responds with the following data:
-- - **Length**: an integer representing the length of the snake, which is also the number of segments (including the head).
-- - **Segments**: a list of segments as pairs `x` and `y`, separated by a single space.
-- - **Food**: the position of the food pip as a pair `x` and `y`, separated by a single space.
+    - **Length**: an integer representing the length of the snake, which is also the number of segments (including the head).
+    - **Segments**: a list of segments as pairs `x` and `y`, separated by a single space.
+    - **Food**: the position of the food pip as a pair `x` and `y`, separated by a single space.
 
 - 6 Repeat steps 4 and 5.
