@@ -11,6 +11,7 @@ This will be the starting position of the snake.
 We now enter the main loop.
 
 3. The server sends the following data:
+    - **State**: either `0` or `1` depending on whether the snake is dead or alive.
     - **Length**: an integer representing the length of the snake, which is also the number of segments (including the head).
     - **Segments**: a list of segments as pairs `x` and `y`, separated by a single space.
     - **Food**: the position of the food pip as a pair `x` and `y`, separated by a single space.
