@@ -1,2 +1,2 @@
-snake-server/bin/
-snake-client/bin/
+snake-server/bin/*
+snake-client/bin/*
