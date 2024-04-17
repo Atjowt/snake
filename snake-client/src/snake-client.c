@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
 
@@ -99,6 +98,8 @@ int main(void) {
 		printf("Sending direction...\n");
 		send(socket_fd, &direction, sizeof(int), 0);
 	}
+
+	printf("Shutting down...\n");
 
 	close(socket_fd);
 

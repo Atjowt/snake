@@ -41,6 +41,11 @@ void move_snake(void) {
 	snake[0].x += dx[direction];
 	snake[0].y += dy[direction];
 
+	if (snake[0].x < 0 || snake[0].x >= width || snake[0].y < 0 || snake[0].y >= height) {
+		alive = 0;
+		return;
+	}
+
 	if (snake[0].x == food.x && snake[0].y == food.y) {
 		snake[length] = snake[length - 1];
 		length++;
@@ -51,6 +56,7 @@ void move_snake(void) {
 	for (int i = 1; i < length; i++) {
 		if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
 			alive = 0;
+			return;
 		}
 	}
 }
@@ -141,6 +147,7 @@ int main(void) {
 		read(new_socket, &direction, sizeof(int));
 		move_snake();
 	}
+	printf("Shutting down...\n");
 	send(new_socket, &(int){0}, sizeof(int), 0);
 	free(snake);
 	close(new_socket);
