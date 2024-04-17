@@ -1,6 +1,6 @@
 ## Build and Run
 1. Clone the repo using `git clone https://github.com/Atjowt/snake.git`.
-2. Build the project by running `make` inside the project directory.
+2. Build the project by running `make` inside the project directory. **Note**: You might need to create the directories `snake-server/bin` and `snake-client/bin` first!
 3. Run `sh run.sh` to start the client with the server in the background **OR** run `snake-server/bin/snake-server` and `snake-client/bin/snake-client` manually as separate instances.
 
 ## Protocol
