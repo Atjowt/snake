@@ -1,17 +1,17 @@
 ## Build and Run
 1. Clone the repo using `git clone https://github.com/Atjowt/snake.git`.
 2. Build the project by running `make` inside the project directory.
-3. Run `sh run.sh` to start the client with the server in the background *OR* run `snake-server/bin/snake-server` and `snake-client/bin/snake-client` manually.
+3. Run `sh run.sh` to start the client with the server in the background **OR** run `snake-server/bin/snake-server` and `snake-client/bin/snake-client` manually as separate instances.
 
 ## Protocol
 The client and server communicate by sending data over TCP/IP.
 
-1. The client begins by sending `width` and `height`. This will be the width and height of the board.
+1. The client begins by sending two integers `width` and `height`. This will be the width and height of the board.
 
 2. The client then sends two integers `x` and `y`. This will be the starting position of the snake.
 **Note**: Passing `x` or `y` as `-1` will set them to a random value in the range `[0, width)` and `[0, height)` respectively.
 
-We now enter the main loop.
+The main loop consists of the following:
 
 3. The server sends the following data:
     - **length**: an integer representing the length of the snake (the number of segments, including the head). __If this is `0`, the snake is dead.__
