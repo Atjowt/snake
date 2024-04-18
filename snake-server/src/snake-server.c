@@ -7,8 +7,6 @@
 #include <arpa/inet.h>
 #include <string.h>
 
-#define PORT 8000
-
 typedef struct { int x, y; } point_t;
 
 int width, height;
@@ -61,7 +59,14 @@ void move_snake(void) {
 	}
 }
 
-int main(void) {
+int main(int argc, char* argv[]) {
+	
+	if (argc != 2) {
+		perror("Expected port argument");
+		exit(EXIT_FAILURE);
+	}
+
+	int port = atoi(argv[1]);
 
 	int server_fd, new_socket;
 	int opt = 1;
@@ -79,7 +84,7 @@ int main(void) {
 
 	address.sin_family = AF_INET;
 	address.sin_addr.s_addr = INADDR_ANY;
-	address.sin_port = htons(PORT);
+	address.sin_port = htons(port);
 
 	if (bind(server_fd, (struct sockaddr*)&address, sizeof(address)) == -1) {
 		perror("Bind failed");
@@ -91,7 +96,7 @@ int main(void) {
 		exit(EXIT_FAILURE);
 	}
 
-	printf("Server listening on port %d...\n", PORT);
+	printf("Server listening on port %d...\n", port);
 
 	if ((new_socket = accept(server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) == -1) {
 		perror("Accept failed");
