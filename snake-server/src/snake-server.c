@@ -62,7 +62,7 @@ void move_snake(void) {
 int main(int argc, char* argv[]) {
 	
 	if (argc != 2) {
-		perror("Expected port argument");
+		perror("Usage: snake-server [PORT]");
 		exit(EXIT_FAILURE);
 	}
 

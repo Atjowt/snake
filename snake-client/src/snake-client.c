@@ -3,8 +3,6 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
-#define PORT 8000
-
 #define WIDTH 8
 #define HEIGHT 8
 
@@ -22,14 +20,22 @@ void render(void) {
 	system("clear");
 	for (int y = 0; y < HEIGHT; y++) {
 		for (int x = 0; x < HEIGHT; x++) {
-			fputc(screen[y][x], stderr);
-			fputc(' ', stderr);
+			putchar(screen[y][x]);
+			putchar(' ');
 		}
-		fputc('\n', stderr);
+		putchar('\n');
 	}
 }
 
-int main(void) {
+int main(int argc, char* argv[]) {
+
+	if (argc != 3) {
+		perror("Usage: snake-client [IP] [PORT]");
+		exit(EXIT_FAILURE);
+	}
+
+	char* ip = argv[1];
+	int port = atoi(argv[2]);
 
 	int socket_fd;
 	struct sockaddr_in server_addr;
@@ -40,9 +46,9 @@ int main(void) {
 	}
 
 	server_addr.sin_family = AF_INET;
-	server_addr.sin_port = htons(PORT);
+	server_addr.sin_port = htons(port);
 
-	if (inet_pton(AF_INET, "127.0.0.1", &server_addr.sin_addr) <= 0) {
+	if (inet_pton(AF_INET, ip, &server_addr.sin_addr) <= 0) {
 		perror("Invalid/unsupported address");
 		exit(EXIT_FAILURE);
 	}
@@ -51,6 +57,8 @@ int main(void) {
 		perror("Connection failed");
 		exit(EXIT_FAILURE);
 	}
+
+	printf("Connected to %s on port %d\n", ip, port);
 	
 	printf("Sending width...\n");
 	send(socket_fd, &(int){WIDTH}, sizeof(int), 0);
