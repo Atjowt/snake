@@ -1,0 +1,1 @@
+gcc -std=c99 -pedantic -Wall -Wextra -g -I../include -o snake main.c
