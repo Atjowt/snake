@@ -1,5 +1,5 @@
 # Snake!
-This is a simple header-only snake engine. Simply include `snake.h` in your project to use it, and remember to define `SNAKE_C` before including in it in your source file. See example for tips on usage.
+This is a simple header-only snake engine. Simply include [snake.h](include/snake.h) in your project to use it, and remember to define `SNAKE_C` before including in it in your source file. See example for tips on usage.
 
 ## Example
 
