@@ -39,4 +39,4 @@ while [ "$#" -gt 0 ]; do
     esac
 done
 
-make && ./snake $game_width $game_height $screen_width $screen_height $seed
+make && build/snake $game_width $game_height $screen_width $screen_height $seed
