@@ -16,7 +16,7 @@ To run the example, I have provided a `run.sh` script. Just move into the `examp
 
 Unprovided or invalid arguments will simply retain their default value.
 
-Alternatively, you can just build the program by running the `build.sh` script.
+Alternatively, you can build the program with `make` and then run it manually. The arguments can still be provided, but only as pure values, in order. For example like `make && build/snake 9 9 13 13 57193`.
 
 ### How to Play
-The program will wait for input. Type one of 'w' / 'a' / 's' / 'd' and hit enter to move. You can also enter a space to continue in the same direction.
+The program will wait for input. Type one of 'w' / 'a' / 's' / 'd' and hit enter to move. You can also enter a space to continue moving in the same direction.
