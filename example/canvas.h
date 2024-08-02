@@ -17,7 +17,6 @@ void canvas_rect_box(struct canvas *canvas, size_t x0, size_t y0, size_t x1, siz
 void canvas_fill(struct canvas *canvas, char c);
 void canvas_deinit(struct canvas *canvas, void (*deallocfn)(void *));
 
-
 #ifdef CANVAS_C
 
 void canvas_init(struct canvas *canvas, size_t width, size_t height, void *(*allocfn)(size_t)) {
